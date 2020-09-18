@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 <div class="container-fluid">
   <div class="row justify-content-center align-items-center h-100">
-    <table class="table table-striped">
+    <table class="table table-striped table-lg">
       <thead class="thead-dark">
         <tr>
           <th scope="col">Id Order</th>
@@ -21,6 +21,31 @@
             </button>
           </td>
           <td>{{ order.subtotal.toFixed(2) }}</td>
+          <td>{{ order.total.toFixed(2) }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <table class="table table-striped table-sm mtb-20" *ngFor="let order of orders">
+      <tbody >
+        <tr>
+          <th scope="col"> Id Order</th>
+          <th scope="col">{{ order.id }}</th>
+        </tr>
+        <tr>
+          <th scope="col">Id Usuario</th>
+          <td>{{ order.userId }}</td>
+        </tr>
+        <tr>
+          <th scope="col">Detalles de pedidos</th>
+          <td><button class="button" (click)="openDetail(order.details)">
+            Detalles
+          </button></td>
+        </tr>
+        <tr>
+          <th scope="col">Subtotal</th>
+          <td>{{ order.subtotal.toFixed(2) }}</td>        </tr>
+        <tr>
+          <th scope="col">Total</th>
           <td>{{ order.total.toFixed(2) }}</td>
         </tr>
       </tbody>

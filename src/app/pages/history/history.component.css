@@ -36,7 +36,9 @@
     width: 75%;
 }
 
-
+.table-sm{
+  display: none;
+}
 
   .card{
       width: 50%;
@@ -61,7 +63,22 @@
   .description {
     font-size: 10px;
   }
+
   .table{
-      width: 60%;
+    width: 90%;
+}
+
+
+  .table-lg{
+    display: none;
   }
+  .table-sm{
+    display: table;
+  }
+
+  .mtb-20{
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  
   }
