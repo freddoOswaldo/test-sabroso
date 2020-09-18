@@ -1,0 +1,64 @@
+<app-navbar></app-navbar>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-8 col-lg-8 col-12">
+            <div class="card rounded-lg text-center shadow-lg">
+                <div *ngFor="let product of products; let i = index">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col align-self-center">
+                                <img [src]="images[i]" alt="product" width="250" height="150" />
+                            </div>
+                            <div class="col">
+                                <div class="row justify-content-center mb-10">
+                                    <span class="title">{{ product.name }}</span>
+                                </div>
+                                <div class="row mb-20">
+                                    <span class="description">{{ product.description }}</span>
+                                </div>
+                                <div class="row justify-content-center align-items-center mb-40">
+                                    <div class="div-price"><span class="price">
+                                            Precio Uni. ${{ product.price }}</span></div>
+                                    <button class="button-round" (click)="addProduct(product.id)">-</button>
+                                    <div class="div-quantity"><span class="quantity">{{ product.quantity }}</span></div>
+                                    <button class="button-round" (click)="addProduct(product.id,true)">+</button>
+                                    <div class="div-sub-uni"><span class="price">
+                                            ${{ (product.price * product.quantity).toFixed(2) }}</span></div>
+                                          
+                                </div>
+                                <button class="button" (click)="addCart(product)">Agregar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <hr *ngIf="products.length-1>i">
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 col-lg-4 col-12">
+            <div class="card rounded text-center shadow-lg">
+                <div class="container">
+                    <div class="row justify-content-center mb-10">
+                        <h2>Carrito</h2>
+                    </div>
+                    <div class="row justify-content-between mb-10" *ngFor="let product of cart; let i = index">
+                        <span class="div-text">{{product.name}}</span>
+                        <span>{{(product.price * product.quantity).toFixed(2)}}</span>
+                    </div>
+                    <hr *ngIf="cart!=null && cart.length>0">
+                    <div class="row justify-content-between mb-10">
+                        <h5>Subtotal:</h5>
+                        <span>{{subtotal.toFixed(2)}}</span>
+                    </div>
+                    <div class="row justify-content-between mb-10">
+                        <h5>Total:</h5>
+                        <span>{{total.toFixed(2)}}</span>
+                    </div>
+                    <div class="row justify-content-between mb-10">
+                        <button class="button" (click)="generateOrder()">Ordenar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

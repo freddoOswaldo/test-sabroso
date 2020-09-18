@@ -1,0 +1,61 @@
+<app-navbar></app-navbar>
+<div class="container-fluid">
+  <div class="row justify-content-center align-items-center h-100">
+    <table class="table table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Id Order</th>
+          <th scope="col">Id Usuario</th>
+          <th scope="col">Detalle del Pedido</th>
+          <th scope="col">Subtotal</th>
+          <th scope="col">Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of orders">
+          <th scope="row">{{ order.id }}</th>
+          <td>{{ order.userId }}</td>
+          <td>
+            <button class="button" (click)="openDetail(order.details)">
+              Detalles
+            </button>
+          </td>
+          <td>{{ order.subtotal.toFixed(2) }}</td>
+          <td>{{ order.total.toFixed(2) }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+<div class="modall" *ngIf="isOpen" (click)="isOpen = !isOpen">
+  <div class="container">
+    <div class="row justify-content-center align-items-center h-100">
+      <div class="card rounded-lg text-center shadow-lg">
+        <div *ngFor="let order of detailSelect; let i = index">
+          <div class="row pl-3">
+            <div class="col-7 p-10">
+              <div class="row justify-content-start mb-10">
+                <span class="title align-txt-start">{{ order.name }}</span>
+              </div>
+              <div class="row mb-20">
+                <span class="description">{{ order.description }}</span>
+              </div>
+            </div>
+            <div class="col-5 align-self-center">
+              <div class="row justify-content-end alin mb-10">
+                <div class="pr-4">
+                  <span class="txt-price">{{ order.quantity }} x ${{ order.price }}</span>
+                </div>
+                <div class="pr-3">
+                  <span class="txt-price2">${{ order.quantity * order.price }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr *ngIf="detailSelect.length - 1 > i" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

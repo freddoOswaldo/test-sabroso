@@ -1,0 +1,21 @@
+<div class="container-fluid background">
+<div class="row justify-content-center align-items-center h-100">
+  <div class="card rounded card-login text-center shadow-lg">
+    <h1>Iniciar</h1>
+    <div class="pb-20 div-img-avatar">
+      <img
+        src="../../../assets/img/avatar.png"
+        class="img-avatar"
+        alt="avatar"
+      />
+    </div>
+    <div class="pb-20">
+      <input type="text" class="inp" placeholder="Usuario" [formControl]="username" (keydown)="keyDown()" />
+      <div class="p-10 width-100" *ngIf="validation">
+      <span class="msg-error">Debe ingresar el usuario</span>
+      </div>
+    </div>
+    <button class="button" (click)="login()">Ingresar</button>
+  </div>
+</div>
+</div>

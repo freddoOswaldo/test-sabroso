@@ -1,0 +1,14 @@
+.card-login {
+  width: 350px;
+}
+
+.img-avatar {
+  width: 134px;
+}
+
+.msg-error {
+  color: red;
+}
+.background {
+  background: var(--primary-color);
+}
